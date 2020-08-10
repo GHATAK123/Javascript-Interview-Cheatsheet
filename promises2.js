@@ -15,4 +15,4 @@ const handleFailure = (rejectionReason) => {
   console.log(rejectionReason);
 };
 
-prom.then(handleSuccess, handleFailure);
+prom.then(handleSuccess).catch(handleFailure);

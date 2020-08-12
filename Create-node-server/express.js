@@ -9,7 +9,19 @@ const monsters = { hydra: { height: 3, age: 4 }, dragon: { height: 200, age: 350
 app.get("/",(req,res)=>{
    res.send("Hello");
 })
+// Route using Express.Route
+const monstersRouter = express.Router();
 
+app.use('/monsters', monstersRouter);
+
+monstersRouter.get('/:id', (req, res, next) => {
+  const monster = monsters[req.params.id];
+  if (monster) {
+    res.send(monster);
+  } else {
+    res.status(404).send();
+  }
+});
 // Dynamic Routing
 app.get('/monsters/:name', (req, res, next) => {
   console.log(req.params) // 

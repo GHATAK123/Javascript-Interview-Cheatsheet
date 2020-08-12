@@ -18,7 +18,17 @@ app.get('/monsters/:name', (req, res, next) => {
   else
   res.status(404).send('Monster not found');
 });
+app.post('/monsters',(req,res,next) => {
+  const receivedExpression = createElement('monsters', req.query);
+  if (receivedExpression) {
+    expressions.push(receivedExpression);
+    res.status(201).send(receivedExpression);
+  } else {
+    res.status(400).send();
+  }
 
+
+});
 // Invoke the app's `.listen()` method below:
 app.listen(PORT, () => {
   console.log(`Server is listening on port ${PORT}`);

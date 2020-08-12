@@ -5,13 +5,14 @@ const app =  express();
 
 const PORT = process.env.PORT || 4001;
 
+const monsters = { hydra: { height: 3, age: 4 }, dragon: { height: 200, age: 350 } };
 app.get("/",(req,res)=>{
    res.send("Hello");
 })
-const monsters = { hydra: { height: 3, age: 4 }, dragon: { height: 200, age: 350 } };
-// GET /monsters/hydra
+
+// Dynamic Routing
 app.get('/monsters/:name', (req, res, next) => {
-  console.log(req.params) // { name: 'hydra' };
+  console.log(req.params) // 
   res.send(monsters[req.params.name]);
 });
 

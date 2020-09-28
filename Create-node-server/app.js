@@ -4,7 +4,6 @@ let requestListener = (request, response) => {
   
   response.write('Hello World!\n');
   response.end();
-  
 };
 
 const server = http.createServer(requestListener);

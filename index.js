@@ -75,3 +75,28 @@ console.log(getValue.name,getValue.Age);
 setTimeout(function() {
     sessionStorage.clear();
 },2000)
+
+
+// call method in JavaScript
+let student = {
+    firstName:"Prakash ",
+    lastName:"Anand",
+    getFullName : function (hometown,state) {
+        console.log(this.firstName + this.lastName+" "+ hometown + " " + state);
+    }
+}
+
+student.getFullName();
+
+let student1 = {
+    firstName:"Arpit ",
+    lastName:"Kumar",
+}
+
+//  Function Borrowing Using call and apply method
+student.getFullName.call(student1,"ara","bihar");
+student.getFullName.apply(student1,["jaipur","rajasthan"]);
+
+// Bind method return the copy of function that can be invoke later
+let printMyName = student.getFullName.bind(student1,"Kolkata","West Bengal");
+printMyName();
